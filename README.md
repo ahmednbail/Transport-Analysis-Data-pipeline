@@ -10,6 +10,14 @@ Analyze large public transport datasets to gain insights, using **BigQuery** as 
 
 ## Tech Stack & Tools
 
+### 🧰 The Toolkit
+
+I am building end-to-end data solutions using this modern tech stack:
+
+| Infrastructure | Orchestration | Warehousing | Transformation | Dashboarding |
+|:--------------:|:-------------:|:-----------:|:--------------:|:------------:|
+| <img src="https://img.shields.io/badge/GCS-4285F4?style=flat-square&logo=googlecloud&logoColor=white" alt="GCS"><br><img src="https://img.shields.io/badge/PostgreSQL-336791?style=flat-square&logo=postgresql&logoColor=white" alt="PostgreSQL"> | <img src="https://img.shields.io/badge/Airflow-017CEE?style=flat-square&logo=apacheairflow&logoColor=white" alt="Airflow"> | <img src="https://img.shields.io/badge/BigQuery-4285F4?style=flat-square&logo=googlebigquery&logoColor=white" alt="BigQuery"> | <img src="https://img.shields.io/badge/dbt-FF694B?style=flat-square&logo=dbt&logoColor=white" alt="dbt"> | <img src="https://img.shields.io/badge/Power%20BI-F2C811?style=flat-square&logo=powerbi&logoColor=black" alt="Power BI"> |
+
 ### 📁 Tools & Technologies
 
 Navigate the stack by layer. Each tool serves a specific role in the pipeline.
