@@ -10,23 +10,25 @@ Analyze large public transport datasets to gain insights, using cloud data wareh
 
 ## Tech Stack & Tools
 
-### Tools & Technologies
+### 📁 Tools & Technologies
 
-| Logo | Tool | Role |
-|:----:|------|------|
-| <img src="https://cdn.simpleicons.org/postgresql/336791" width="48" height="48" alt="PostgreSQL"> | **PostgreSQL** | Database |
-| <img src="https://cdn.simpleicons.org/apacheairflow/017CEE" width="48" height="48" alt="Apache Airflow"> | **Apache Airflow** | Orchestration |
-| <img src="https://cdn.simpleicons.org/amazonaws/FF9900" width="48" height="48" alt="AWS"> | **AWS** (S3, Lake Formation) | Data lake |
-| <img src="https://cdn.simpleicons.org/googlecloud/4285F4" width="48" height="48" alt="Google Cloud"> | **Google Cloud** (Cloud Storage, BigLake) | Data lake |
-| <img src="https://cdn.simpleicons.org/microsoftazure/0078D4" width="48" height="48" alt="Azure"> | **Azure** (Data Lake Storage) | Data lake |
-| <img src="https://cdn.simpleicons.org/snowflake/29B5E8" width="48" height="48" alt="Snowflake"> | **Snowflake** | Data warehouse |
-| <img src="https://cdn.simpleicons.org/amazonredshift/8C4FFF" width="48" height="48" alt="Amazon Redshift"> | **Amazon Redshift** | Data warehouse |
-| <img src="https://cdn.simpleicons.org/googlebigquery/4285F4" width="48" height="48" alt="Google BigQuery"> | **Google BigQuery** | Data warehouse |
-| <img src="https://cdn.simpleicons.org/dbt/FF694B" width="48" height="48" alt="DBT"> | **DBT** | Modeling |
-| <img src="https://cdn.simpleicons.org/powerbi/F2C811" width="48" height="48" alt="Power BI"> | **Power BI** | Dashboarding |
+Navigate the stack by layer. Each tool serves a specific role in the pipeline.
 
-*Data lake: use AWS (S3, Lake Formation), Google Cloud (Cloud Storage, BigLake), or Azure (Data Lake Storage) depending on your environment.*  
-*Warehousing: use Snowflake, BigQuery, or Redshift depending on your environment.*
+```
+Transport-Analysis-Data-pipeline/
+├── PostgreSQL/                    # Database
+├── Apache Airflow/                 # Orchestration & workflow scheduling
+├── AWS (S3, Lake Formation)/       # Data lake
+├── Google Cloud (Storage, BigLake)/ # Data lake
+├── Azure (Data Lake Storage)/      # Data lake
+├── Snowflake/                      # Data warehouse
+├── Amazon Redshift/                # Data warehouse
+├── Google BigQuery/                # Data warehouse
+├── DBT/                            # Data modeling & transformation
+└── Power BI/                       # Dashboarding & visualization
+```
+
+*Data lake: use AWS, Google Cloud, or Azure depending on your environment. Warehousing: use Snowflake, BigQuery, or Redshift.*
 
 ### By Layer
 
