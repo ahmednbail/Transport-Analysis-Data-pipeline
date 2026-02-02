@@ -4,7 +4,7 @@
 
 # Transport Analysis Data Pipeline
 
-Analyze large public transport datasets to gain insights, using cloud data warehouses like **Snowflake**, **Redshift**, or **BigQuery**.
+Analyze large public transport datasets to gain insights, using **BigQuery** as the data warehouse, **Google Cloud Storage (GCS)** as the data lake, **DBT** for modeling, and **Apache Airflow** for orchestration.
 
 ---
 
@@ -17,28 +17,24 @@ Navigate the stack by layer. Each tool serves a specific role in the pipeline.
 ```
 Transport-Analysis-Data-pipeline/
 ├── PostgreSQL/                    # Database
-├── Apache Airflow/                 # Orchestration & workflow scheduling
-├── AWS (S3, Lake Formation)/       # Data lake
-├── Google Cloud (Storage, BigLake)/ # Data lake
-├── Azure (Data Lake Storage)/      # Data lake
-├── Snowflake/                      # Data warehouse
-├── Amazon Redshift/                # Data warehouse
-├── Google BigQuery/                # Data warehouse
-├── DBT/                            # Data modeling & transformation
+├── Apache Airflow/ ✅              # Orchestration & workflow scheduling
+├── Google Cloud Storage (GCS)/ ✅  # Data lake
+├── Google BigQuery/ ✅             # Data warehouse
+├── DBT/ ✅                         # Data modeling & transformation
 └── Power BI/                       # Dashboarding & visualization
 ```
 
-*Data lake: use AWS, Google Cloud, or Azure depending on your environment. Warehousing: use Snowflake, BigQuery, or Redshift.*
+**Selected Stack:** Apache Airflow (Orchestration) → Google Cloud Storage (Data Lake) → Google BigQuery (Data Warehouse) → DBT (Modeling) → Power BI (Visualization)
 
 ### By Layer
 
 | Layer           | Tool(s)                                                                 |
 |-----------------|-------------------------------------------------------------------------|
 | **Database**    | PostgreSQL                                                              |
-| **Orchestration** | Apache Airflow                                                        |
-| **Data Lake**   | AWS (S3, Lake Formation), Google Cloud (Cloud Storage, BigLake), Azure (Data Lake Storage) |
-| **Warehousing** | Snowflake, BigQuery, or Amazon Redshift                                |
-| **Modeling**    | DBT (Data Build Tool)                                                  |
+| **Orchestration** | Apache Airflow ✅                                                      |
+| **Data Lake**   | Google Cloud Storage (GCS) ✅                                           |
+| **Warehousing** | Google BigQuery ✅                                                      |
+| **Modeling**    | DBT (Data Build Tool) ✅                                                |
 | **Dashboarding**| Power BI                                                               |
 
 ---
@@ -53,7 +49,7 @@ Transport-Analysis-Data-pipeline/
 - Build analytical tables and queries in the data warehouse.
 
 ### Milestone 3: Deployment (Real-Time or Batch)
-- Load data into Snowflake, BigQuery, or Redshift with batch processes.
+- Load data into BigQuery with batch processes using Airflow orchestration.
 
 ### Milestone 4: MLOps / Monitoring / Automation
 - Automate query refresh schedules.
