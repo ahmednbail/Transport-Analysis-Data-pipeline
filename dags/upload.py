@@ -27,15 +27,9 @@ parse_dates = [
     "tpep_dropoff_datetime"
 ]
 
-@click.command()
-@click.option('--pg_user', default='postgres', help='Postgres User')
-@click.option('--pg_password', default='postgres123', help='Postgres Password')
-@click.option('--pg_host', default='localhost', help='Postgres Host')
-@click.option('--pg_port', default=5433, help='Postgres Port')
-@click.option('--pg_db', default='ny_taxi', help='Postgres Database')
-@click.option('--chunksize', default=100000, help='Chunk size for processing')
-@click.option('--target_table', default='yellow_taxi_data', help='Target table name')
-def run(pg_user, pg_password, pg_host, pg_port, pg_db,chunksize, target_table): 
+
+
+def run(pg_user='postgres', pg_password='postgres123', pg_host='localhost', pg_port=5433, pg_db='ny_taxi',chunksize=100000, target_table='yellow_taxi_data'): 
 
         
         url=r"D:\Ahmed\Projects\Transport-Analysis-Data-pipeline\Data\yellow_tripdata_2021-01.csv"
