@@ -209,3 +209,4 @@ __marimo__/
 
 
 Data/yellow_tripdata_2021-01.csv
+include/gcp/service_account.json
