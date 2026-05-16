@@ -2,7 +2,7 @@ from datetime import datetime, timedelta
 from airflow import DAG
 from airflow.providers.google.cloud.transfers.postgres_to_gcs import PostgresToGCSOperator
 from airflow.providers.google.cloud.transfers.gcs_to_bigquery import GCSToBigQueryOperator
-from airflow.operators.python import PythonOperator
+from airflow.providers.standard.operators.python import PythonOperator
 from airflow.providers.postgres.hooks.postgres import PostgresHook
 from airflow.providers.google.cloud.hooks.gcs import GCSHook
 
@@ -34,11 +34,10 @@ TAXI_COLUMNS = [
     "tolls_amount",
     "improvement_surcharge",
     "total_amount",
-    "congestion_surcharge",
-    "airport_fee",
+    "congestion_surcharge"
 ]
 
-POSTGRES_SELECT_COLUMNS = ", ".join(f'"{column}"' for column in TAXI_COLUMNS)
+POSTGRES_SELECT_COLUMNS = ",".join(f'"{column}"' for column in TAXI_COLUMNS)
 
 BIGQUERY_SCHEMA_FIELDS = [
     {"name": "VendorID", "type": "INTEGER", "mode": "NULLABLE"},
@@ -58,8 +57,7 @@ BIGQUERY_SCHEMA_FIELDS = [
     {"name": "tolls_amount", "type": "FLOAT", "mode": "NULLABLE"},
     {"name": "improvement_surcharge", "type": "FLOAT", "mode": "NULLABLE"},
     {"name": "total_amount", "type": "FLOAT", "mode": "NULLABLE"},
-    {"name": "congestion_surcharge", "type": "FLOAT", "mode": "NULLABLE"},
-    {"name": "airport_fee", "type": "FLOAT", "mode": "NULLABLE"},
+    {"name": "congestion_surcharge", "type": "FLOAT", "mode": "NULLABLE"}
 ]
 
 with DAG(
@@ -70,7 +68,7 @@ with DAG(
     default_args={
         'owner':'Ahmed Nabil',
         'retries':3,
-        'retry_delay': timedelta(minutes=5),
+        'retry_delay': timedelta(minutes=1),
         'depends_on_past':False,
     },
     tags=['Data-Pipeline', 'Yellow-Taxi']
@@ -101,7 +99,7 @@ with DAG(
         filename=GCS_PATH + "/" + GCS_FILENAME,
         export_format='csv',
         field_delimiter=',',
-        approx_max_file_size_bytes=10 * 1024 * 1024,
+        approx_max_file_size_bytes= 10 * 1024 * 1024,
         gcp_conn_id=GCP_CONN_ID
     )
 
@@ -113,7 +111,7 @@ with DAG(
         source_format='CSV',
         field_delimiter=',',
         schema_fields=BIGQUERY_SCHEMA_FIELDS,
-        skip_leading_rows=0,
+        skip_leading_rows=1,
         write_disposition='WRITE_TRUNCATE',
         create_disposition='CREATE_IF_NEEDED',
         gcp_conn_id=GCP_CONN_ID
