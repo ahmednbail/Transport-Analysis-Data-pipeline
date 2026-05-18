@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: transport-analysis
+    database: transport-analysis-496017
+    schema: transport
+    tables:
+      - name: yellow_tripdata
