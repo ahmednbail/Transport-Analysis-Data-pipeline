@@ -13,7 +13,7 @@ seeds:
     columns:
       - name: payment_type
         description: Numeric code for payment type
-        data_tests:
+        tests:
           - unique
           - not_null
       - name: description
