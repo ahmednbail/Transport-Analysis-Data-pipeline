@@ -1,3 +1,12 @@
+{{
+  config(
+    materialized='incremental',
+    unique_key='trip_id',
+    schema='inter',
+    incremental_strategy='merge',
+    on_schema_change='append_new_columns'  )
+}}
+
 with unioned as (
     select * from {{ ref('stg_taxi') }}
 ),
