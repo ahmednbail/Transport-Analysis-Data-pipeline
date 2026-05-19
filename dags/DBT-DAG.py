@@ -4,11 +4,11 @@ from airflow.providers.dbt.cloud.operators.dbt import DbtCloudRunJobOperator
 
 
 DBT_CLOUD_CONN_ID = 'dbt-cloud'
-DBT_CLOUD_JOB_ID = '1'
+DBT_CLOUD_JOB_ID = 70506183131891 
 
 
 with DAG(
-    dage_id= 'dbt-dag',
+    dag_id= 'dbt-dag',
     start_date= datetime(2026,5,16),
     schedule= '@daily',
     catchup= False,
@@ -21,4 +21,8 @@ with DAG(
     tags= ['dbt', 'data-pipeline']
 
 ) as dag: 
-            pass
+           dbt_run=DbtCloudRunJobOperator(
+               task_id='dbt-run',
+               conn_id=DBT_CLOUD_CONN_ID,
+               job_id=DBT_CLOUD_JOB_ID,
+           )
