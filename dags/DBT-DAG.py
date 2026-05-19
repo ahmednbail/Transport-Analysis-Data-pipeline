@@ -36,9 +36,8 @@ with DAG(
 
     dbt_run = DbtCloudRunJobOperator(
         task_id='dbt-run',
-        conn_id=DBT_CLOUD_CONN_ID,
+        dbt_cloud_conn_id=DBT_CLOUD_CONN_ID,
         job_id=DBT_CLOUD_JOB_ID,
     )
 
     check_dbt_connection() >> dbt_run
-    
