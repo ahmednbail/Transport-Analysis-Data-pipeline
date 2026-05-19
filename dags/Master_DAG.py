@@ -1,7 +1,6 @@
 from airflow import DAG 
 from datetime import datetime, timedelta
-from airflow.providers.standard.operators.trigger_dagrun.TriggerDagRunOperator import TriggerDagRunOperator
-
+from airflow.providers.standard.operators.trigger_dagrun import TriggerDagRunOperator
 
 with DAG(
     dag_id="Master_DAG",
