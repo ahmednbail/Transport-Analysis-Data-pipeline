@@ -63,7 +63,7 @@ BIGQUERY_SCHEMA_FIELDS = [
 with DAG(
     dag_id='pipeline_for_yellow_taxi',
     start_date=datetime(2026,5,14),
-    schedule='@daily',
+    schedule=None,
     catchup=False,
     default_args={
         'owner':'Ahmed Nabil',

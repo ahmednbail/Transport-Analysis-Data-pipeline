@@ -11,7 +11,7 @@ DBT_CLOUD_JOB_ID = 70506183131891
 with DAG(
     dag_id='dbt-dag',
     start_date=datetime(2026, 5, 16),
-    schedule='@daily',
+    schedule=None,
     catchup=False,
     default_args={
         'owner': 'Ahmed Nabil',
