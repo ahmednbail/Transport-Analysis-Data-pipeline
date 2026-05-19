@@ -41,3 +41,4 @@ with DAG(
     )
 
     check_dbt_connection() >> dbt_run
+    
