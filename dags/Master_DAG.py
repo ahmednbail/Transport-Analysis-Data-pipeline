@@ -20,6 +20,8 @@ with DAG(
     trigger_extraction_dag = TriggerDagRunOperator(
         task_id="trigger_extraction_dag",
         trigger_dag_id="pipeline_for_yellow_taxi",
+        wait_for_completion=True,
+        poke_interval=30,
     )
 
     trigger_dbt_dag = TriggerDagRunOperator(
