@@ -1,5 +1,6 @@
 {{ config(
     materialized='incremental',
+    schema='staging',
     unique_key='surrogate_key',
     incremental_strategy='merge',
     partition_by={
