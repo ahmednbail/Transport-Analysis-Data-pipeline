@@ -27,4 +27,4 @@ with DAG(
         trigger_dag_id="dbt-dag",
     )
 
-    trigger_extraction_dag >> trigger_dbt_dag
+    trigger_extraction_dag >> trigger_dbt_dag   
