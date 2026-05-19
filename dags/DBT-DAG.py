@@ -27,7 +27,8 @@ with DAG(
         from airflow.providers.dbt.cloud.hooks.dbt import DbtCloudHook
 
         hook = DbtCloudHook(dbt_cloud_conn_id=DBT_CLOUD_CONN_ID)
-        response = hook._run_and_get_response(endpoint="")
+        account_id = hook.connection.login
+        response = hook._run_and_get_response(endpoint=f"{account_id}/")
         data = response.json()
         if data["status"]["is_success"]:
             print(f"Connected to dbt Cloud account: {data['data']['name']}")
